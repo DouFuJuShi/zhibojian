@@ -7,8 +7,6 @@ use tracing::Level;
 enum Route {
     #[route("/")]
     Home {},
-    #[route("/blog/:id")]
-    Blog { id: i32 },
 }
 
 fn main() {
@@ -28,28 +26,33 @@ fn App() -> Element {
 }
 
 #[component]
-fn Blog(id: i32) -> Element {
+pub fn Sidebar() -> Element {
     rsx! {
-        Link { to: Route::Home {}, "Go to counter" }
-        "Blog post {id}"
+        div {
+            class: "bg-slate-600",
+            ul {
+                li {
+                    Link {
+                        to: "",
+                        "直播录制"
+                    }
+                }
+                li {
+                    class: "",
+                    "设置"
+                }
+            }
+        }
     }
 }
 
 #[component]
 fn Home() -> Element {
-    let mut count = use_signal(|| 0);
-
     rsx! {
-        Link {
-            to: Route::Blog {
-                id: count()
-            },
-            "Go to blog"
-        }
         div {
-            h1 { "High-Five counter: {count}" }
-            button { onclick: move |_| count += 1, "Up high!" }
-            button { onclick: move |_| count -= 1, "Down low!" }
+            Sidebar{
+
+            }
         }
     }
 }
