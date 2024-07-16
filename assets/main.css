@@ -1,5 +1,5 @@
 body {
-    background-color: #361fcf;
+    background-color: #cf1f57;
 }
 
 #main {
@@ -34,7 +34,7 @@ body {
 
 #links a:hover {
     background-color: #1f1f1f;
-    cursor: pointer;
+    cursor: pointer; 
 }
 
 #header {
