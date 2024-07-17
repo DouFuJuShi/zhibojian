@@ -35,20 +35,19 @@ fn App() -> Element {
 #[component]
 pub fn Sidebar() -> Element {
     rsx! {
-        div { class: "bg-yellow-50 w-1/6 h-dvh float-left border-spacing-y-4 border-r-8",
+        div { class: "bg-gray-100 w-1/6 h-dvh float-left border-spacing-y-4 border-r-8",
             ul {
                 li {
-                    "直播录制"
+                    Link { to: Route::Home {}, "直播录制" }
                 }
 
                 li {
-                    class: "",
-                    "设置"
+                    Link { to: Route::Setting {}, "设置"}
+                    
                 }
 
                 li {
-                    class: "",
-                    "登录"
+                    Link { to: Route::Setting {},  "登录"}
                 }
             }
         } 
@@ -77,7 +76,9 @@ fn Home() -> Element {
 #[component]
 fn Setting() -> Element {
     rsx!{
-        
+        Sidebar{
+
+        }
     }
 }
 
@@ -85,6 +86,8 @@ fn Setting() -> Element {
 #[component]
 fn Signin() -> Element {
     rsx!{
-        
+        Sidebar{
+
+        }
     }
 }
