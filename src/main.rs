@@ -11,7 +11,6 @@ enum Route {
     #[route("/setting")]
     Setting {},
 
-
     #[route("/signin")]
     Signin {},
 }
@@ -34,6 +33,9 @@ fn App() -> Element {
 
 #[component]
 pub fn Sidebar() -> Element {
+    let s: &str = "中文";
+    println!("{s:?}");
+
     rsx! {
         div { class: "bg-gray-100 w-1/6 h-dvh float-left border-spacing-y-4 border-r-8",
             ul {
@@ -43,14 +45,14 @@ pub fn Sidebar() -> Element {
 
                 li {
                     Link { to: Route::Setting {}, "设置"}
-                    
+
                 }
 
                 li {
                     Link { to: Route::Setting {},  "登录"}
                 }
             }
-        } 
+        }
     }
 }
 
@@ -61,7 +63,7 @@ fn Home() -> Element {
 
        }
 
-        div { 
+        div {
             class: "bg-red-50 w-5/6 h-full float-right",
 
             button {
@@ -75,17 +77,16 @@ fn Home() -> Element {
 
 #[component]
 fn Setting() -> Element {
-    rsx!{
+    rsx! {
         Sidebar{
 
         }
     }
 }
 
-
 #[component]
 fn Signin() -> Element {
-    rsx!{
+    rsx! {
         Sidebar{
 
         }
